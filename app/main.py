@@ -3,11 +3,10 @@ import app.errors
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
-
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except (app.errors.VaccineError, app.errors.OutdatedVaccineError):
+        except app.errors.VaccineError:
             return "All friends should be vaccinated"
         except app.errors.NotWearingMaskError:
             continue

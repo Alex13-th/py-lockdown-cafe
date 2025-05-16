@@ -17,7 +17,7 @@ class Cafe:
         if current_day > expiration_day:
             raise app.errors.OutdatedVaccineError
 
-        if not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask", False):
             raise app.errors.NotWearingMaskError
 
         return f"Welcome to {self.name}"
